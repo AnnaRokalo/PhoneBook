@@ -1,6 +1,13 @@
-export function editPhone(phone) {
+
+//types of actions
+export const CREATE_RECORD = 'CREATE_RECORD';
+export const FETCH_PHONE = 'FETCH_PHONE';
+export const DELETE_RECORD = 'DELETE_RECORD';
+
+export function fetchPhone(phone) {
   return {
-    type: 'PHONE_EDIT',
+    type: FETCH_PHONE,
     payload: phone
   };
 }
+

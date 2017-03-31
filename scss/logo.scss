@@ -1,0 +1,23 @@
+@import 'config';
+
+.logo {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logo__img {
+  width: 50px;
+  height: 50px;
+  background: url(../images/logo.svg) no-repeat 50% 50%;
+  background-size: contain;
+}
+
+.logo__text {
+  font-family: $font-logo;
+  font-size: 36px;
+  color: #ffffff;
+}

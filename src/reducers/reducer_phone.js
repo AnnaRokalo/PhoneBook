@@ -1,4 +1,4 @@
-export const INITIAL_STATE = {phones: [], phoneNumber: null};
+export const INITIAL_STATE = {phones: [], phone: {}};
 
 export default function (state = INITIAL_STATE, action) {
   switch(action.type){
