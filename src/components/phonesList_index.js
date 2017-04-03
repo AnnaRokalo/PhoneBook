@@ -29,7 +29,7 @@ class PhonesList extends Component {
     return (
       <div className="page">
         <div className="top-bar">
-          <div className="btn btn-add-phone"> </div>
+          <Link to="/phones/new" className="btn btn-add-phone"> </Link>
         </div>
         <ul className="phones-list">
           {this.renderList()}

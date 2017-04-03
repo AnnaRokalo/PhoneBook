@@ -11,9 +11,9 @@ class PhoneShow extends Component {
   render() {
     const {phone} = this.props.phone;
     if(!phone) {
-      return <div>Loading...</div>
+      // return <div>Loading...</div>
     }
-    const imgUrl = (phone.img === '') ? '' : phone.img;
+    const imgUrl = (phone.img == '') ? '' : phone.img;
     const bgImage = imgUrl ? 'url(' + imgUrl + ')' : 'url(./images/icon-user-no-border.svg)';
     return (
       <div className="page">
