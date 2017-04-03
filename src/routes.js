@@ -9,6 +9,6 @@ export default (
   <Route path="/" component={App} >
     <IndexRoute component={PhoneListIndex} />
     <Route path="/" component={App} />
-    <Route path="phonesList/:id" component={PhoneDetail} />
+    <Route path="phones/:id" component={PhoneDetail} />
   </Route>
 );

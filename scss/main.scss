@@ -15,6 +15,10 @@
   flex-flow: row nowrap;
   justify-content: flex-end;
   margin: 10px 0;
+
+  &.top-bar--reverse {
+    justify-content: flex-start;
+  }
 }
 
 .btn {
@@ -24,6 +28,8 @@
   border-radius: 50%;
   background-color: $some-gray-color;
   box-shadow: 0 2px 5px rgba($black-color, 0.5);
+  text-decoration: none;
+  display: block;
 }
 
 .btn-add-phone {
@@ -31,4 +37,50 @@
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 24px;
+}
+
+.btn-back {
+  background-image: url(../images/icon-back.svg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 24px;
+}
+
+.user__icon {
+  width: 34px;
+  height: 34px;
+  margin-right: 10px;
+  background: rgba(#5d8c96, 0.4) url(../images/icon-user-no-border.svg) no-repeat 50% 50%;
+  background-size: 29px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(93, 140, 150, 0.4);
+
+  &.user__icon--big {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 40px;
+  }
+}
+
+.card {
+  padding: 50px 10px 80px;
+  box-shadow: 0 2px 5px rgba($black-color, 0.5);
+  margin: 20px auto;
+}
+
+.card__name {
+  color: $black-color;
+  font-family: $font-main;
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.card__phone {
+  color: $black-color;
+  font-family: $font-number;
+  font-weight: 300;
+  font-size: 25px;
+  text-align: center;
 }

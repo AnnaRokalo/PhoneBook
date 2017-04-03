@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import PhonesListReducer from './reducer__phonesList';
-import PhoneReducer from './reducer_phone';
+ import PhonesListReducer from './reducer__phonesList';
+import PhoneReducer from './reducer_phones';
 
 const rootReducer = combineReducers({
   phones: PhonesListReducer,
