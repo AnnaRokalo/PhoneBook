@@ -18,9 +18,13 @@ label {
   font-size: 12px;
 }
 
-.textbox {
+.form__textbox {
   border: 0;
-  border-bottom: 1px solid $some-gray-color;
+  border-bottom: 1px solid rgba($color-8, 0.6);
   outline: none;
   font-size: 24px;
+
+  &:hover, &:active, &:focus {
+    border-bottom: 1px solid $some-gray-color;
+  }
 }

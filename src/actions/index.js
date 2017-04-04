@@ -10,7 +10,9 @@ export function fetchPhone(phone) {
   };
 }
 
+//props = name, phoneNumber
 export function createPhone(props) {
+  console.log(props);
   return {
     type: CREATE_PHONE,
     payload: props

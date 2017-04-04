@@ -1,17 +1,16 @@
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
-  entry:{
-    main:  './src/index.js'
-  },
+  entry: [
+    './src/index.js'
+  ],
   output: {
     path: __dirname,
     publicPath: '/',
-    filename: 'build.js'
+    filename: './build.js'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', '.scss']
   },
-  devtool: 'source-map',
   module: {
     loaders: [{
       exclude: /node_modules/,
@@ -38,6 +37,7 @@ module.exports = {
       allChunks: true
     })
   ],
+  devtool: 'source-map',
   devServer: {
     historyApiFallback: true,
     contentBase: './'
