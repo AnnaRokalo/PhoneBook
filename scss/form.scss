@@ -1,0 +1,26 @@
+@import 'config';
+
+.form__main {
+  padding: 50px 30px 60px;
+  box-shadow: 0 2px 5px rgba($black-color, 0.5);
+  margin: 20px auto 10px;
+}
+
+.form__group {
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  color: $black-color;
+  font-family: $font-main;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.textbox {
+  border: 0;
+  border-bottom: 1px solid $some-gray-color;
+  outline: none;
+  font-size: 24px;
+}

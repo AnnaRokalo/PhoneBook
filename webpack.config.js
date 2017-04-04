@@ -33,13 +33,13 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new ExtractTextPlugin('style/style.css',{
+      allChunks: true
+    })
+  ],
   devServer: {
     historyApiFallback: true,
     contentBase: './'
-  },
-  plugins: [
-     new ExtractTextPlugin('style/style.css',{
-       allChunks: true
-     })
-  ]
+  }
 };

@@ -9,8 +9,7 @@ import PhoneNew from './components/phone_new';
 export default (
   <Route path="/" component={App} >
     <IndexRoute component={PhoneListIndex} />
-    <Route path="/" component={App} />
-    <Route path="phones/:id" component={PhoneDetail} />
     <Route path="phones/new" component={PhoneNew} />
+    <Route path="phones/:id" component={PhoneDetail} />
   </Route>
 );

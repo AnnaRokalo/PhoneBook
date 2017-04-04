@@ -15,10 +15,24 @@
   flex-flow: row nowrap;
   justify-content: flex-end;
   margin: 10px 0;
+  align-items: center;
 
   &.top-bar--reverse {
     justify-content: flex-start;
   }
+
+  &.top-bar--stretch {
+    justify-content: space-between;
+  }
+}
+
+.top-bar__title {
+  color: $dark-color;
+  flex: 1;
+  font-family: $font-main;
+  font-size: 27px;
+  font-weight: 300;
+  text-align: center;
 }
 
 .user__icon {
