@@ -1,13 +1,31 @@
-import React, { Component } from 'react';
-import { reduxForm } from 'redux-form';
+import React, { Component, PropTypes } from 'react';
 import {Link} from 'react-router';
 import { createPhone } from '../actions/index';
+import { Control,  Form, actions } from 'react-redux-form';
+import { connect } from 'react-redux';
+const initialAddPhoneUserState = {
+  contactName: '',
+  phoneNumber: ''
+};
+
 
 class PhoneNew extends Component {
-  render() {
+  static contextTypes = {
+    router: PropTypes.object
+  };
 
+  handleSubmit(values) {
+    this.props.createPhone(values);
+      // .then( () => {
+      //   this.context.router.push('/');
+      // });
+    this.context.router.push('/');
+    actions.reset('addPhone');
+  }
+
+  render() {
     return (
-      <form className="page" >
+      <Form model="addPhone" onSubmit={(values) => { this.handleSubmit(values)}}  className="page" >
         <div className="top-bar">
           <Link to="/" className="btn btn-back"> </Link>
           <h3 className="top-bar__title">Create a new contact</h3>
@@ -15,20 +33,21 @@ class PhoneNew extends Component {
         </div>
         <div className="form__main">
           <div className="form__group">
-            <label>Name</label>
-            <input type="text" className="form__textbox" {...name}/>
+            <label>Contact Name</label>
+            <Control.text  model="addPhone.contactName" className="form__textbox" />
           </div>
           <div className="form-group">
             <label>Phone number</label>
-            <input type="tel" className="form__textbox" {...phoneNumber}/>
+            <Control.text type="tel" model="addPhone.phoneNumber" className="form__textbox"/>
           </div>
         </div>
-      </form>
+      </Form>
     );
   }
 }
 
-export default reduxForm({
-  form: 'PhoneNewForm',
-  fields: ['name', 'phoneNumber']
-}, null, { createPhone })(PhoneNew);
+function mapStateToProps(state) {
+  return {phones: state.phones.all};
+}
+
+export default connect(mapStateToProps, {createPhone})(PhoneNew);

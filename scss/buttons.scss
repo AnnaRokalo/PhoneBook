@@ -34,3 +34,12 @@
   background-size: 24px;
   margin-left: 20px;
 }
+
+.btn__delete {
+  display: block;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  background-image: url(../images/icon-garbage.svg);
+  background-size: contain;
+}

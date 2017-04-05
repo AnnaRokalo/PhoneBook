@@ -26,16 +26,6 @@
   flex: 1 1 auto;
 }
 
-.phones-list__delete {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  background-image: url(../images/icon-garbage.svg);
-  background-size: contain;
-  //@extend .phones-list__edit;
-}
-
 .phones-list__name {
   color: $black-color;
   font-family: $font-main;

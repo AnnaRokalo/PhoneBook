@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { fetchPhone } from '../actions/index';
+import { fetchPhone, deletePhone } from '../actions/index';
 import {Link} from 'react-router';
 
 class PhoneShow extends Component {
@@ -8,8 +8,15 @@ class PhoneShow extends Component {
     router: PropTypes.object
   };
 
+  onDeleteClick() {
+    this.props.deletePhone(this.props.params.id);
+    this.context.router.push('/');
+  }
+
+
   render() {
-    const {phone} = this.props.phone;
+    const {phone} = this.props;
+
     if(!phone) {
       return <div>Loading...</div>
     }
@@ -22,6 +29,7 @@ class PhoneShow extends Component {
         </div>
         <div className="card">
           <div className="user__icon user__icon--big" style={{backgroundImage: bgImage}}> </div>
+          <button onClick={this.onDeleteClick.bind(this)} className="card__btn btn__delete"> </button>
           <div className="card__name">{phone.Name}</div>
           <div className="card__phone">{phone.phoneNumber}</div>
         </div>
@@ -31,7 +39,7 @@ class PhoneShow extends Component {
 }
 
 function mapStateToProps(state) {
-  return { phone: state.phone };
+  return { phone: state.phones.phone };
 }
 
-export default connect(mapStateToProps, {fetchPhone})(PhoneShow);
+export default connect(mapStateToProps, {fetchPhone, deletePhone})(PhoneShow);

@@ -11,6 +11,7 @@ import '../scss/style.scss';
 import reducers from './reducers';
 import routes from './routes';
 
+
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 ReactDOM.render(

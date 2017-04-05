@@ -2,6 +2,7 @@
 //types of actions
 export const FETCH_PHONE = 'FETCH_PHONE';
 export const CREATE_PHONE = 'CREATE_PHONE';
+export const DELETE_PHONE = 'DELETE_PHONE';
 
 export function fetchPhone(phone) {
   return {
@@ -11,10 +12,16 @@ export function fetchPhone(phone) {
 }
 
 //props = name, phoneNumber
-export function createPhone(props) {
-  console.log(props);
+export function createPhone(values) {
   return {
     type: CREATE_PHONE,
-    payload: props
+    payload: values
+  };
+}
+
+export function deletePhone(id) {
+  return {
+    type: DELETE_PHONE,
+    payload: id
   };
 }

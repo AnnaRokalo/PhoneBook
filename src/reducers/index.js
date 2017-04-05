@@ -1,12 +1,15 @@
 import { combineReducers } from 'redux';
-import PhonesListReducer from './reducer_phonesList';
 import PhoneReducer from './reducer_phones';
-import  { reducer as formReducer } from 'redux-form';
+import { modelReducer, formReducer,  actions } from 'react-redux-form';
 
+const initialAddPhoneUserState = {
+  contactName: '',
+  phoneNumber: ''
+};
 const rootReducer = combineReducers({
-  phones: PhonesListReducer,
-  phone: PhoneReducer,
-  form: formReducer
+  phones: PhoneReducer,
+  addPhone: modelReducer('addPhone', initialAddPhoneUserState),
+  addForm: formReducer('addPhone')
 });
 
 export default rootReducer;
