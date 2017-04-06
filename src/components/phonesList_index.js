@@ -5,9 +5,9 @@ import { selectPhone } from '../actions/index';
 import {bindActionCreators} from 'redux';
 
 class PhonesList extends Component {
-    static contextTypes = {
-        router: PropTypes.object
-    };
+  static contextTypes = {
+    router: PropTypes.object
+  };
   renderList() {
     return this.props.phones.map((item) => {
       const imgUrl = (item.img === '') ? '' : item.img;

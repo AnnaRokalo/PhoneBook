@@ -8,6 +8,7 @@
 
 .form__group {
   margin-bottom: 30px;
+  position: relative;
 }
 
 label {
@@ -26,5 +27,53 @@ label {
 
   &:hover, &:active, &:focus {
     border-bottom: 1px solid $some-gray-color;
+  }
+}
+
+input[type="file"] {
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.form__photo {
+  position: relative;
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(93, 140, 150, 0.4);
+  text-align: center;
+  line-height: 1;
+  background-color: rgba(93, 140, 150, 0.4);
+
+  img {
+    width: 84%;
+    height: 94%;
+    max-width: 100%;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    display: none;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    background: rgba(93, 140, 150, 0.4) url(../images/icon-add-dark.svg) no-repeat 50% 50%;
+    background-size: 50px;
+    border-radius: 50%;
+  }
+
+  &:hover {
+    &:before {
+      display: block;
+    }
   }
 }

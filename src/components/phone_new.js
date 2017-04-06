@@ -10,9 +10,9 @@ class PhoneNew extends Component {
   };
 
   state = {
-      contactName: '',
-      phoneNumber: '',
-      img: '/images/icon-user-no-border.svg',
+    contactName: '',
+    phoneNumber: '',
+    img: '/images/icon-user-no-border.svg',
   };
 
   handleSubmit(e) {
@@ -21,19 +21,19 @@ class PhoneNew extends Component {
     this.context.router.push('/');
   }
 
-    selectPhoto(input) {
+  selectPhoto(input) {
 
-        if (input.files && input.files[0]) {
-            const reader = new FileReader();
-            reader.onload = (e) => this.setState({'img': e.target.result});
-            reader.readAsDataURL(input.files[0]);
-        }
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (e) => this.setState({'img': e.target.result});
+      reader.readAsDataURL(input.files[0]);
     }
+  }
 
 
-    isValid() {
-      return this.state.contactName && this.state.phoneNumber;
-    }
+  isValid() {
+    return this.state.contactName && this.state.phoneNumber;
+  }
 
   render() {
     return (
@@ -45,6 +45,12 @@ class PhoneNew extends Component {
         </div>
         <div className="form__main">
           <div className="form__group">
+            <div className="form__photo">
+              <input type='file' onChange={e => this.selectPhoto(e.target)}/>
+              <img src={this.state.img} />
+            </div>
+          </div>
+          <div className="form__group">
             <label>Contact Name</label>
             <input className="form__textbox" value={this.state.contactName} onChange={(e) => this.setState({contactName: e.target.value})} />
           </div>
@@ -52,8 +58,6 @@ class PhoneNew extends Component {
             <label>Phone number</label>
             <input className="form__textbox" value={this.state.phoneNumber} onChange={(e) => this.setState({phoneNumber: e.target.value})} />
           </div>
-          <input type='file' onChange={e => this.selectPhoto(e.target)}/>
-          <img src={this.state.img}/>
         </div>
       </form>
     );
