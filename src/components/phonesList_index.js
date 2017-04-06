@@ -1,16 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
-import { fetchPhone } from '../actions/index';
+import { selectPhone } from '../actions/index';
 import {bindActionCreators} from 'redux';
 
 class PhonesList extends Component {
+    static contextTypes = {
+        router: PropTypes.object
+    };
   renderList() {
     return this.props.phones.map((item) => {
       const imgUrl = (item.img === '') ? '' : item.img;
-      const bgImage = imgUrl ? 'url(' + imgUrl + ')' : 'url(./images/icon-user-no-border.svg)';
+      const bgImage = imgUrl ? 'url(' + imgUrl + ')' : 'url(/images/icon-user-no-border.svg)';
       return (
-        <li key={item.id} onClick={() => this.props.fetchPhone(item)}>
+        <li key={item.id}>
           <Link to={ "phones/" + item.id } className="phones-list__item" >
             <div className="user__icon" style={{backgroundImage: bgImage}}> </div>
             <div className="phones-list__info">
@@ -40,6 +43,6 @@ function mapStateToProps(state) {
   return {phones: state.phones.all};
 }
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({fetchPhone: fetchPhone}, dispatch);
+  return bindActionCreators({selectPhone: selectPhone}, dispatch);
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PhonesList);

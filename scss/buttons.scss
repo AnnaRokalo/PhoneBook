@@ -11,6 +11,11 @@
   display: block;
   border: 0;
   outline: none;
+
+  &:disabled {
+    background-color: gray;
+    cursor: default;
+  }
 }
 
 .btn-add-phone {

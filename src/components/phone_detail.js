@@ -1,11 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { fetchPhone, deletePhone } from '../actions/index';
+import { deletePhone } from '../actions/index';
 import {Link} from 'react-router';
 
 class PhoneShow extends Component {
   static contextTypes = {
-    router: PropTypes.object
+    router: PropTypes.object,
+    params: PropTypes.object,
+    phones: PropTypes.array
   };
 
   onDeleteClick() {
@@ -15,13 +17,13 @@ class PhoneShow extends Component {
 
 
   render() {
-    const {phone} = this.props;
+    const phone = this.props.phones.find(x => x.id === parseInt(this.props.params.id));
 
     if(!phone) {
       return <div>Loading...</div>
     }
     const imgUrl = (phone.img === '') ? '' : phone.img;
-    const bgImage = imgUrl ? 'url(../' + imgUrl + ')' : 'url(../images/icon-user-no-border.svg)';
+    const bgImage = imgUrl ? 'url(' + imgUrl + ')' : 'url(/images/icon-user-no-border.svg)';
     return (
       <div className="page">
         <div className="top-bar top-bar--reverse">
@@ -39,7 +41,7 @@ class PhoneShow extends Component {
 }
 
 function mapStateToProps(state) {
-  return { phone: state.phones.phone };
+  return { phones: state.phones.all };
 }
 
-export default connect(mapStateToProps, {fetchPhone, deletePhone})(PhoneShow);
+export default connect(mapStateToProps, {deletePhone})(PhoneShow);
