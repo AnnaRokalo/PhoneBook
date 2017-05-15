@@ -8,3 +8,9 @@ Create the app which store the phone numbers. You should implement next function
   3) delete phones,
   4) view particular phone.
 The data should be saved in localStorage. 
+
+To run the project:
+  1) clone or download the project,
+  2) run npm install,
+  3) run npm start,
+  4) see the running app on localhost:8080.
